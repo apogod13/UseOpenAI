@@ -16,6 +16,7 @@ else:
 # Step 3 — Initialize the OpenAI client
 openai = OpenAI()
 
+# Step 4 — Write questions
 questions_text = ["can you reliably commute to colchester 3 days per week", "do you have commercial experience with blazor", "do you have full right to work in the uk"]
 
 prompt = f"""You are helping someone apply for a remote software developer job in the UK.
@@ -31,7 +32,7 @@ Questions:
 
 Reply with ONLY a JSON array, nothing else. Example: ["yes", "no", "yes"]"""
 
-# Step 4 — Send a simple test prompt
+# Step 5 — Send a simple test prompt
 messages = [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": prompt}]
 response = openai.chat.completions.create(
     model="gpt-4.1-nano",
